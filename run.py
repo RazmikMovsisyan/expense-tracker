@@ -6,15 +6,21 @@ EXPENSE_FILE_PATH = "expenses.csv"
 BUDGET = 2000
 
 def main():
-    print(f"Running Expense Tracker!")
+    print(f"🎯 Running Expense Tracker!")
     
-    # Get user to input an expense
-    expense = get_user_expense()
+    # Loop to keep asking for new expenses
+    while True:
+        expense = get_user_expense()
 
-    # Write the expenses to a file
-    save_expense_to_file(expense, EXPENSE_FILE_PATH)
+        # Save the expense to the file
+        save_expense_to_file(expense, EXPENSE_FILE_PATH)
 
-    # Read file and summarize all expenses
+        # Ask the user if they want to add another expense
+        continue_input = input("Do you want to add another expense? (y/n): ").strip().lower()
+        if continue_input != 'y':  # Exit the loop if the user does not enter 'y'
+            break
+
+    # Once the loop finishes, Read file and summarize all expenses
     summarize_expenses(EXPENSE_FILE_PATH, BUDGET)
     
 def get_user_expense():
