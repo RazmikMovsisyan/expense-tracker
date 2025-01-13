@@ -25,3 +25,30 @@ def get_user_expense():
             break  # break out of loop if valid input
         except ValueError:
             print("Invalid amount. Please enter a valid number.")
+
+    expense_categories = [
+        "Food",
+        "Home",
+        "Work",
+        "Fun",
+        "Misc",
+    ]
+
+    while True:
+        print("Select a category: ")
+        for i, category_name in enumerate(expense_categories):
+            print(f"  {i + 1}. {category_name}") # to start from 1 instead of 0
+
+        value_range = f"[1 - {len(expense_categories)}]" #length of categories instead of manual typing
+        try:
+            selected_index = int(input(f"Enter a category number {value_range}: ")) - 1
+            if selected_index in range(len(expense_categories)):
+                selected_category = expense_categories[selected_index]
+                new_expense = Expense(
+                    name=expense_name, category=selected_category, amount=expense_amount
+                )
+                return new_expense
+            else:
+                print("Invalid category. Please try again!")
+        except ValueError:
+            print("Invalid input. Please enter a valid category number.")
