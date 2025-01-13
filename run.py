@@ -85,6 +85,9 @@ def summarize_expenses(expense_file_path, budget):
 
     remaining_budget = budget - total_spent
     print(f"Budget Remaining: ${remaining_budget:.2f}")
-   
+
+def green(text):
+    return f"\033[92m{text}\033[0m" #print text in green color for emphasis
+
 if __name__ == "__main__":
-    main()  # call the main function to run the script
+    main()  #call the main function to run the script
