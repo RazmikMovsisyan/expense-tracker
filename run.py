@@ -1,4 +1,6 @@
 from expense import Expense
+import calendar  # module to handle month range and days
+import datetime  # module to work with current date and time
 
 EXPENSE_FILE_PATH = "expenses.csv"  
 BUDGET = 2000
@@ -85,6 +87,13 @@ def summarize_expenses(expense_file_path, budget):
 
     remaining_budget = budget - total_spent
     print(f"Budget Remaining: ${remaining_budget:.2f}")
+
+    now = datetime.datetime.now()
+    days_in_month = calendar.monthrange(now.year, now.month)[1]
+    remaining_days = days_in_month - now.day
+
+    daily_budget = remaining_budget / remaining_days if remaining_days > 0 else 0
+    print(green(f"👉 Budget Per Day: ${daily_budget:.2f}"))
 
 def green(text):
     return f"\033[92m{text}\033[0m" #print text in green color for emphasis
