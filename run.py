@@ -18,7 +18,7 @@ def main():
     summarize_expenses(EXPENSE_FILE_PATH, BUDGET)
     
 def get_user_expense():
-    print(f"Getting User Expense")
+    print(f"🎯 Getting User Expense")
     expense_name = input("Enter expense name: ")
 
     while True:
@@ -29,11 +29,11 @@ def get_user_expense():
             print("Invalid amount. Please enter a valid number.")
 
     expense_categories = [
-        "Food",
-        "Home",
-        "Work",
-        "Fun",
-        "Misc",
+        "🍔 Food",
+        "🏠 Home",
+        "💼 Work",
+        "🎉 Fun",
+        "✨ Misc",
     ]
 
     while True:
@@ -56,12 +56,12 @@ def get_user_expense():
             print("Invalid input. Please enter a valid category number.")
     
 def save_expense_to_file(expense: Expense, expense_file_path):
-    print(f"Saving User Expense: {expense} to {expense_file_path}")
+    print(f"🎯 Saving User Expense: {expense} to {expense_file_path}")
     with open(expense_file_path, "a") as f:
         f.write(f"{expense.name},{expense.amount},{expense.category}\n")
 
 def summarize_expenses(expense_file_path, budget):
-    print(f"Summarizing User Expense")
+    print(f"🎯 Summarizing User Expense")
     
     expenses = []  # empty list to hold expense objects
     with open(expense_file_path, "r") as f:
@@ -78,15 +78,15 @@ def summarize_expenses(expense_file_path, budget):
     for expense in expenses:
         amount_by_category[expense.category] = amount_by_category.get(expense.category, 0) + expense.amount
 
-    print("Expenses By Category:")
+    print("Expenses By Category 📈:")
     for key, amount in amount_by_category.items():
         print(f"  {key}: ${amount:.2f}")
 
     total_spent = sum(expense.amount for expense in expenses)
-    print(f"Total Spent: ${total_spent:.2f}")
+    print(f"💵 Total Spent: ${total_spent:.2f}")
 
     remaining_budget = budget - total_spent
-    print(f"Budget Remaining: ${remaining_budget:.2f}")
+    print(f"✅ Budget Remaining: ${remaining_budget:.2f}")
 
     now = datetime.datetime.now()
     days_in_month = calendar.monthrange(now.year, now.month)[1]
