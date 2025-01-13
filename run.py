@@ -85,3 +85,6 @@ def summarize_expenses(expense_file_path, budget):
 
     remaining_budget = budget - total_spent
     print(f"Budget Remaining: ${remaining_budget:.2f}")
+   
+if __name__ == "__main__":
+    main()  # call the main function to run the script
