@@ -52,3 +52,8 @@ def get_user_expense():
                 print("Invalid category. Please try again!")
         except ValueError:
             print("Invalid input. Please enter a valid category number.")
+    
+def save_expense_to_file(expense: Expense, expense_file_path):
+    print(f"Saving User Expense: {expense} to {expense_file_path}")
+    with open(expense_file_path, "a") as f:
+        f.write(f"{expense.name},{expense.amount},{expense.category}\n")
