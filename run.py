@@ -14,3 +14,14 @@ def main():
 
     # Read file and summarize all expenses
     summarize_expenses(EXPENSE_FILE_PATH, BUDGET)
+    
+def get_user_expense():
+    print(f"Getting User Expense")
+    expense_name = input("Enter expense name: ")
+
+    while True:
+        try:
+            expense_amount = float(input("Enter expense amount: "))
+            break  # break out of loop if valid input
+        except ValueError:
+            print("Invalid amount. Please enter a valid number.")
