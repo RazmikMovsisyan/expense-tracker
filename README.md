@@ -120,8 +120,8 @@ The project was developed to be used with the [Code Institute Template](https://
 The live site on Heroku is available here: [Expense Tracker](https://razmik-expense-tracker-066ff1e93a9e.herokuapp.com/)
 
 ## Version Control
-* The code is stored in the [GitHub](https://github.com/) repository.
-* The repository contains a single branch, and all code has been committed as it was written, ensuring clarity. The repository can be found at this [Link](https://github.com/RazmikMovsisyan/expense-tracker), and it can be cloned or downloaded for further development.
+* The code is stored in the GitHub repository.
+* The repository contains a single branch, and the code has been committed regularly to ensure clarity. The repository can be found at this [Link](https://github.com/RazmikMovsisyan/expense-tracker), and it can be cloned or downloaded for further development.
 
 ## Development Process and Commands
 
