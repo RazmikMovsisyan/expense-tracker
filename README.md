@@ -117,7 +117,7 @@ The project was developed to be used with the [Code Institute Template](https://
 11. Click **Deploy Branch** to deploy the project immediately.
 
 
-The live site on Heroku is available here: [Expense Tracker](razmik-expense-tracker-066ff1e93a9e.herokuapp.com/)
+The live site on Heroku is available here: [Expense Tracker](https://razmik-expense-tracker-066ff1e93a9e.herokuapp.com/)
 
 ## Version Control
 * The code is stored in the [GitHub](https://github.com/) repository.
