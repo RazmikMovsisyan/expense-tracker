@@ -59,8 +59,7 @@ def get_user_expense():
             if selected_index in range(len(expense_categories)):
                 selected_category = expense_categories[selected_index]
                 new_expense = Expense(
-                    name=expense_name,
-                    category=selected_category, amount=expense_amount
+                    name=expense_name, category=selected_category, amount=expense_amount
                 )
                 return new_expense
             else:
@@ -82,8 +81,7 @@ def summarize_expenses(expense_file_path, budget):
     # empty list to hold expense objects
     with open(expense_file_path, "r") as f:
         for line in f:
-            expense_name,
-            expense_amount, expense_category = line.strip().split(",")
+            expense_name, expense_amount, expense_category = line.strip().split(",")
             line_expense = Expense(
                 name=expense_name,
                 amount=float(expense_amount),
