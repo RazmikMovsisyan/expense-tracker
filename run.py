@@ -2,12 +2,13 @@ from expense import Expense
 import calendar  # module to handle month range and days
 import datetime  # module to work with current date and time
 
-EXPENSE_FILE_PATH = "expenses.csv"  
+EXPENSE_FILE_PATH = "expenses.csv"
 BUDGET = 2000
+
 
 def main():
     print(f"🎯 Running Expense Tracker!")
-    
+
     # Loop to keep asking for new expenses
     while True:
         expense = get_user_expense()
@@ -16,13 +17,14 @@ def main():
         save_expense_to_file(expense, EXPENSE_FILE_PATH)
 
         # Ask the user if they want to add another expense
-        continue_input = input("Do you want to add another expense? (y/n): ").strip().lower()
+        continue_input = input("Add another expense? (y/n): ").strip().lower()
         if continue_input != 'y':  # Exit the loop if the user does not enter 'y'
             break
 
     # Once the loop finishes, Read file and summarize all expenses
     summarize_expenses(EXPENSE_FILE_PATH, BUDGET)
-    
+
+
 def get_user_expense():
     print(f"🎯 Getting User Expense")
     expense_name = input("Enter expense name: ")
@@ -45,9 +47,9 @@ def get_user_expense():
     while True:
         print("Select a category: ")
         for i, category_name in enumerate(expense_categories):
-            print(f"  {i + 1}. {category_name}") # to start from 1 instead of 0
+            print(f"  {i + 1}. {category_name}")  # to start from 1 instead of 0
 
-        value_range = f"[1 - {len(expense_categories)}]" #length of categories instead of manual typing
+        value_range = f"[1 - {len(expense_categories)}]"  # length of categories instead of manual typing
         try:
             selected_index = int(input(f"Enter a category number {value_range}: ")) - 1
             if selected_index in range(len(expense_categories)):
@@ -60,15 +62,17 @@ def get_user_expense():
                 print("Invalid category. Please try again!")
         except ValueError:
             print("Invalid input. Please enter a valid category number.")
-    
+
+
 def save_expense_to_file(expense: Expense, expense_file_path):
     print(f"🎯 Saving User Expense: {expense} to {expense_file_path}")
     with open(expense_file_path, "a") as f:
         f.write(f"{expense.name},{expense.amount},{expense.category}\n")
 
+
 def summarize_expenses(expense_file_path, budget):
     print(f"🎯 Summarizing User Expense")
-    
+
     expenses = []  # empty list to hold expense objects
     with open(expense_file_path, "r") as f:
         for line in f:
@@ -101,8 +105,10 @@ def summarize_expenses(expense_file_path, budget):
     daily_budget = remaining_budget / remaining_days if remaining_days > 0 else 0
     print(green(f"👉 Budget Per Day: ${daily_budget:.2f}"))
 
+
 def green(text):
-    return f"\033[92m{text}\033[0m" #print text in green color for emphasis
+    return f"\033[92m{text}\033[0m"  # print text in green color for emphasis
+
 
 if __name__ == "__main__":
-    main()  #call the main function to run the script
+    main()  # call the main function to run the script
